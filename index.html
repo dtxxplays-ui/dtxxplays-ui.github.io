@@ -13,77 +13,58 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Full Animated Night Sky + Car Background */
+        /* Smooth Bug-Free Animated Purple Nebula Mesh */
         body {
             min-height: 100vh;
-            background: 
-                linear-gradient(to bottom, rgba(5, 3, 15, 0.82), rgba(12, 5, 28, 0.88)),
-                url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
-            background-attachment: fixed;
+            background: linear-gradient(135deg, #0b031a, #1a0836, #090214);
+            background-size: 400% 400%;
+            animation: gradientBG 12s ease infinite;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #ffffff;
-            padding: 20px;
-            overflow: hidden;
-            position: relative;
+            padding: 24px;
+            overflow-x: hidden;
         }
 
-        /* Falling Shooting Stars Animation */
-        .star {
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Ambient Purple Glow Orbs */
+        .glow-orb {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            height: 2px;
-            background: linear-gradient(-45deg, #a855f7, rgba(0, 0, 255, 0));
-            filter: drop-shadow(0 0 6px #c084fc);
-            animation: tail 3s ease-in-out infinite, shooting 3s ease-in-out infinite;
-            border-radius: 999px;
+            width: 350px;
+            height: 350px;
+            background: rgba(168, 85, 247, 0.25);
+            border-radius: 50%;
+            filter: blur(90px);
+            animation: floatOrb 8s infinite alternate ease-in-out;
             pointer-events: none;
         }
 
-        .star::before {
-            content: '';
-            position: absolute;
-            top: calc(50% - 1px);
-            right: 0;
-            height: 2px;
-            background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #ffffff, rgba(0, 0, 255, 0));
-            transform: translateX(50%) rotateZ(45deg);
-            border-radius: 100%;
-            animation: shining 3s ease-in-out infinite;
+        @keyframes floatOrb {
+            0% { transform: translate(-100px, -100px) scale(1); }
+            100% { transform: translate(100px, 100px) scale(1.2); }
         }
 
-        .star:nth-child(1) { top: calc(10% - 50px); left: calc(30% - 200px); animation-delay: 0s; }
-        .star:nth-child(2) { top: calc(20% - 50px); left: calc(70% - 200px); animation-delay: 1.2s; }
-        .star:nth-child(3) { top: calc(35% - 50px); left: calc(50% - 200px); animation-delay: 2.5s; }
-        .star:nth-child(4) { top: calc(15% - 50px); left: calc(85% - 200px); animation-delay: 0.8s; }
-
-        @keyframes tail {
-            0% { width: 0; }
-            30% { width: 100px; }
-            100% { width: 0; }
-        }
-
-        @keyframes shooting {
-            0% { transform: translateX(0) translateY(0) rotate(-35deg); }
-            100% { transform: translateX(600px) translateY(400px) rotate(-35deg); }
-        }
-
-        /* Glassmorphism Profile Card (Horizontal) */
+        /* Bigger Glassmorphism Profile Card */
         .profile-card {
-            background: rgba(15, 8, 28, 0.65);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            border-radius: 28px;
+            position: relative;
+            background: rgba(22, 11, 41, 0.7);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 32px;
             width: 100%;
-            max-width: 620px;
-            padding: 32px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.85), inset 0 0 20px rgba(168, 85, 247, 0.18);
+            max-width: 720px; /* Bada Size */
+            padding: 40px;
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.85), inset 0 0 25px rgba(168, 85, 247, 0.2);
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 36px;
             z-index: 10;
         }
 
@@ -96,96 +77,97 @@
         }
 
         .avatar-box img {
-            width: 130px;
-            height: 130px;
+            width: 150px; /* Enhanced Size */
+            height: 150px;
             border-radius: 50%;
-            border: 3px solid #a855f7;
+            border: 3.5px solid #a855f7;
             object-fit: cover;
-            box-shadow: 0 0 25px rgba(168, 85, 247, 0.5);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
         }
 
         /* Right Side: Clean Info Details */
         .right-side {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 20px;
             width: 100%;
         }
 
         .user-header h2 {
-            font-size: 1.8rem;
+            font-size: 2.1rem;
             font-weight: 700;
             letter-spacing: 0.5px;
         }
 
         .user-header p {
             color: #c084fc;
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             font-weight: 500;
-            margin-top: 2px;
+            margin-top: 4px;
         }
 
         /* Skills Section */
         .section-title {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: #94a3b8;
+            letter-spacing: 1.5px;
+            color: #a78bfa;
             font-weight: 600;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .skills-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .tag {
-            background: rgba(168, 85, 247, 0.18);
-            border: 1px solid rgba(168, 85, 247, 0.35);
-            color: #e9d5ff;
-            padding: 6px 12px;
-            border-radius: 10px;
-            font-size: 0.8rem;
+            background: rgba(168, 85, 247, 0.22);
+            border: 1px solid rgba(168, 85, 247, 0.45);
+            color: #f3e8ff;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 0.88rem;
             font-weight: 500;
         }
 
         /* Socials Buttons Section */
         .socials-container {
             display: flex;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
         .social-btn {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: #e2e8f0;
-            padding: 8px 14px;
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #f1f5f9;
+            padding: 10px 18px;
+            border-radius: 14px;
             text-decoration: none;
-            font-size: 0.82rem;
+            font-size: 0.9rem;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             transition: all 0.3s ease;
         }
 
         .social-btn:hover {
             background: #a855f7;
             color: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
         }
 
         /* Mobile View Responsive */
-        @media (max-width: 550px) {
+        @media (max-width: 600px) {
             .profile-card {
                 flex-direction: column;
                 text-align: center;
-                padding: 24px;
+                padding: 28px;
+                gap: 24px;
             }
             .skills-grid, .socials-container {
                 justify-content: center;
@@ -195,11 +177,8 @@
 </head>
 <body>
 
-    <!-- Shooting Stars Layer -->
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
+    <!-- Purple Animated Glow Background -->
+    <div class="glow-orb"></div>
 
     <div class="profile-card">
         <!-- Left Side: Bigger DP -->
@@ -232,7 +211,7 @@
             <div>
                 <div class="section-title">Connect</div>
                 <div class="socials-container">
-                    <a href="https://discord.com/users/dtx_plays" target="_blank" class="social-btn">
+                    <a href="https://discord.com/channels/@me" target="_blank" class="social-btn">
                         <i class="fa-brands fa-discord"></i> dtx_plays
                     </a>
                     <a href="https://www.instagram.com/anticringex/" target="_blank" class="social-btn">
