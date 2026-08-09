@@ -13,25 +13,35 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Full Screen Minecraft GIF Background */
+        /* Fixed Working Minecraft Night GIF Background */
         body {
             min-height: 100vh;
-            background: 
-                linear-gradient(rgba(10, 5, 22, 0.45), rgba(10, 5, 22, 0.7)),
-                url('https://media.tenor.com/E8w9kH0A7mAAAAAC/minecraft-night.gif') no-repeat center center/cover;
-            background-attachment: fixed;
+            background: #090314 url('https://i.postimg.co/63XmFwL5/minecraft-night.gif') no-repeat center center / cover fixed;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #ffffff;
             padding: 24px;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Dark Purple Overlay for Aesthetic Look */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(12, 5, 26, 0.45);
+            z-index: 1;
         }
 
         /* Glassmorphism Profile Card */
         .profile-card {
             position: relative;
-            background: rgba(18, 9, 36, 0.65);
+            background: rgba(18, 9, 36, 0.72);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.18);
