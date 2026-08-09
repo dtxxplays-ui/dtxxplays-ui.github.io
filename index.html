@@ -13,40 +13,79 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Cinematic Purple Night Road Background */
+        /* Animated Dark Sukuna Purple Domain Background */
         body {
             min-height: 100vh;
-            background: 
-                linear-gradient(rgba(12, 5, 28, 0.75), rgba(8, 3, 18, 0.88)),
-                url('https://images.unsplash.com/photo-1508974239320-0a029497e820?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
-            background-attachment: fixed;
+            background: #06020e;
             display: flex;
             justify-content: center;
             align-items: center;
             color: #ffffff;
             padding: 24px;
-            overflow-x: hidden;
+            overflow: hidden;
+            position: relative;
         }
 
-        /* Bigger Glassmorphism Profile Card */
+        /* Purple Aura Ring Animation */
+        .aura-ring {
+            position: absolute;
+            width: 650px;
+            height: 650px;
+            background: radial-gradient(circle, rgba(147, 51, 234, 0.25) 0%, rgba(88, 28, 135, 0.15) 50%, transparent 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: rotateAura 10s linear infinite alternate;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes rotateAura {
+            0% { transform: scale(0.9) rotate(0deg); opacity: 0.6; }
+            100% { transform: scale(1.15) rotate(180deg); opacity: 0.9; }
+        }
+
+        /* Floating Motion Particles Layer */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #c084fc;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #c084fc, 0 0 20px #a855f7;
+            animation: floatUp 6s infinite linear;
+            z-index: 2;
+        }
+
+        .particle:nth-child(1) { left: 15%; animation-duration: 7s; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 35%; animation-duration: 5s; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 65%; animation-duration: 8s; animation-delay: 1s; }
+        .particle:nth-child(4) { left: 85%; animation-duration: 6s; animation-delay: 3s; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+
+        /* Glassmorphism Profile Card - Big & Bold Layout */
         .profile-card {
             position: relative;
-            background: rgba(18, 9, 36, 0.72);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(15, 6, 31, 0.75);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(168, 85, 247, 0.25);
             border-radius: 36px;
             width: 100%;
-            max-width: 780px; /* Thoda aur bada size */
+            max-width: 780px;
             padding: 46px;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9), inset 0 0 30px rgba(168, 85, 247, 0.22);
+            box-shadow: 0 40px 90px rgba(0, 0, 0, 0.95), inset 0 0 35px rgba(168, 85, 247, 0.2);
             display: flex;
             align-items: center;
             gap: 42px;
             z-index: 10;
         }
 
-        /* Left Side: Bigger DP */
+        /* Left Side: DP */
         .left-side {
             display: flex;
             flex-direction: column;
@@ -55,15 +94,15 @@
         }
 
         .avatar-box img {
-            width: 165px; /* Sightly bigger DP */
+            width: 165px;
             height: 165px;
             border-radius: 50%;
             border: 4px solid #a855f7;
             object-fit: cover;
-            box-shadow: 0 0 35px rgba(168, 85, 247, 0.65);
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.7);
         }
 
-        /* Right Side: Clean Info Details */
+        /* Right Side: Details */
         .right-side {
             display: flex;
             flex-direction: column;
@@ -101,8 +140,8 @@
         }
 
         .tag {
-            background: rgba(168, 85, 247, 0.25);
-            border: 1px solid rgba(168, 85, 247, 0.5);
+            background: rgba(168, 85, 247, 0.22);
+            border: 1px solid rgba(168, 85, 247, 0.45);
             color: #f3e8ff;
             padding: 9px 18px;
             border-radius: 12px;
@@ -136,7 +175,7 @@
             background: #a855f7;
             color: #fff;
             transform: translateY(-3px);
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
         }
 
         /* Mobile View Responsive */
@@ -154,6 +193,13 @@
     </style>
 </head>
 <body>
+
+    <!-- Animated Motion Background Layers -->
+    <div class="aura-ring"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
 
     <div class="profile-card">
         <!-- Left Side: DP -->
