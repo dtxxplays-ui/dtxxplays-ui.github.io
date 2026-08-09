@@ -13,12 +13,13 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Smooth Bug-Free Animated Purple Nebula Mesh */
+        /* Cinematic Purple Night Road Background */
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #0b031a, #1a0836, #090214);
-            background-size: 400% 400%;
-            animation: gradientBG 12s ease infinite;
+            background: 
+                linear-gradient(rgba(12, 5, 28, 0.75), rgba(8, 3, 18, 0.88)),
+                url('https://images.unsplash.com/photo-1508974239320-0a029497e820?q=80&w=1920&auto=format&fit=crop') no-repeat center center/cover;
+            background-attachment: fixed;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -27,44 +28,21 @@
             overflow-x: hidden;
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        /* Ambient Purple Glow Orbs */
-        .glow-orb {
-            position: absolute;
-            width: 350px;
-            height: 350px;
-            background: rgba(168, 85, 247, 0.25);
-            border-radius: 50%;
-            filter: blur(90px);
-            animation: floatOrb 8s infinite alternate ease-in-out;
-            pointer-events: none;
-        }
-
-        @keyframes floatOrb {
-            0% { transform: translate(-100px, -100px) scale(1); }
-            100% { transform: translate(100px, 100px) scale(1.2); }
-        }
-
         /* Bigger Glassmorphism Profile Card */
         .profile-card {
             position: relative;
-            background: rgba(22, 11, 41, 0.7);
+            background: rgba(18, 9, 36, 0.72);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 32px;
+            border-radius: 36px;
             width: 100%;
-            max-width: 720px; /* Bada Size */
-            padding: 40px;
-            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.85), inset 0 0 25px rgba(168, 85, 247, 0.2);
+            max-width: 780px; /* Thoda aur bada size */
+            padding: 46px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9), inset 0 0 30px rgba(168, 85, 247, 0.22);
             display: flex;
             align-items: center;
-            gap: 36px;
+            gap: 42px;
             z-index: 10;
         }
 
@@ -77,43 +55,43 @@
         }
 
         .avatar-box img {
-            width: 150px; /* Enhanced Size */
-            height: 150px;
+            width: 165px; /* Sightly bigger DP */
+            height: 165px;
             border-radius: 50%;
-            border: 3.5px solid #a855f7;
+            border: 4px solid #a855f7;
             object-fit: cover;
-            box-shadow: 0 0 30px rgba(168, 85, 247, 0.6);
+            box-shadow: 0 0 35px rgba(168, 85, 247, 0.65);
         }
 
         /* Right Side: Clean Info Details */
         .right-side {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 22px;
             width: 100%;
         }
 
         .user-header h2 {
-            font-size: 2.1rem;
+            font-size: 2.3rem;
             font-weight: 700;
             letter-spacing: 0.5px;
         }
 
         .user-header p {
             color: #c084fc;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             font-weight: 500;
             margin-top: 4px;
         }
 
         /* Skills Section */
         .section-title {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             color: #a78bfa;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .skills-grid {
@@ -123,12 +101,12 @@
         }
 
         .tag {
-            background: rgba(168, 85, 247, 0.22);
-            border: 1px solid rgba(168, 85, 247, 0.45);
+            background: rgba(168, 85, 247, 0.25);
+            border: 1px solid rgba(168, 85, 247, 0.5);
             color: #f3e8ff;
-            padding: 8px 16px;
+            padding: 9px 18px;
             border-radius: 12px;
-            font-size: 0.88rem;
+            font-size: 0.92rem;
             font-weight: 500;
         }
 
@@ -140,13 +118,13 @@
         }
 
         .social-btn {
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             color: #f1f5f9;
-            padding: 10px 18px;
+            padding: 12px 20px;
             border-radius: 14px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 600;
             display: flex;
             align-items: center;
@@ -162,12 +140,12 @@
         }
 
         /* Mobile View Responsive */
-        @media (max-width: 600px) {
+        @media (max-width: 650px) {
             .profile-card {
                 flex-direction: column;
                 text-align: center;
-                padding: 28px;
-                gap: 24px;
+                padding: 32px 24px;
+                gap: 28px;
             }
             .skills-grid, .socials-container {
                 justify-content: center;
@@ -177,11 +155,8 @@
 </head>
 <body>
 
-    <!-- Purple Animated Glow Background -->
-    <div class="glow-orb"></div>
-
     <div class="profile-card">
-        <!-- Left Side: Bigger DP -->
+        <!-- Left Side: DP -->
         <div class="left-side">
             <div class="avatar-box">
                 <img src="https://i.ibb.co/qYKqv7VR/707427181-18152508655428857-4484127178036789216-n.jpg" alt="Profile DP">
