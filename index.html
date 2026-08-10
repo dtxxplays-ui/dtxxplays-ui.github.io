@@ -13,35 +13,64 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Perfect Unzoomed Anime Motion Background */
+        /* Dark Minecraft Night Sky Background */
         body {
             min-height: 100vh;
-            background: #080313 url('https://i.postimg.co/7YmR0K9B/anime-purple-rain.gif') no-repeat center center / cover fixed;
+            background: linear-gradient(to bottom, #05020c 0%, #0d061f 60%, #15092b 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             color: #ffffff;
             padding: 24px;
-            overflow-x: hidden;
+            overflow: hidden;
             position: relative;
         }
 
-        /* Dark Purple Glass Overlay */
-        body::before {
+        /* Real-time Falling Shooting Stars (CSS Animated) */
+        .star {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            height: 2px;
+            background: linear-gradient(-45deg, #c084fc, rgba(0, 0, 255, 0));
+            filter: drop-shadow(0 0 6px #a855f7);
+            animation: tail 3s ease-in-out infinite, shooting 3s ease-in-out infinite;
+            border-radius: 999px;
+            pointer-events: none;
+        }
+
+        .star::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(147, 51, 234, 0.2) 0%, rgba(8, 3, 19, 0.75) 100%);
-            z-index: 1;
+            top: calc(50% - 1px);
+            right: 0;
+            height: 2px;
+            background: linear-gradient(-45deg, rgba(0, 0, 255, 0), #ffffff, rgba(0, 0, 255, 0));
+            transform: translateX(50%) rotateZ(45deg);
+            border-radius: 100%;
         }
 
-        /* Floating Card with Subtle Pulse Animation */
+        .star:nth-child(1) { top: 5%; left: 20%; animation-delay: 0s; }
+        .star:nth-child(2) { top: 15%; left: 60%; animation-delay: 1.2s; }
+        .star:nth-child(3) { top: 25%; left: 40%; animation-delay: 2.4s; }
+        .star:nth-child(4) { top: 10%; left: 80%; animation-delay: 0.8s; }
+        .star:nth-child(5) { top: 35%; left: 10%; animation-delay: 1.8s; }
+
+        @keyframes tail {
+            0% { width: 0; }
+            30% { width: 120px; }
+            100% { width: 0; }
+        }
+
+        @keyframes shooting {
+            0% { transform: translateX(0) translateY(0) rotate(-35deg); }
+            100% { transform: translateX(700px) translateY(450px) rotate(-35deg); }
+        }
+
+        /* Profile Card - Glassmorphism */
         .profile-card {
             position: relative;
-            background: rgba(15, 7, 31, 0.72);
+            background: rgba(18, 9, 36, 0.75);
             backdrop-filter: blur(25px);
             -webkit-backdrop-filter: blur(25px);
             border: 1px solid rgba(168, 85, 247, 0.3);
@@ -54,15 +83,9 @@
             align-items: center;
             gap: 42px;
             z-index: 10;
-            animation: cardFloat 6s ease-in-out infinite alternate;
         }
 
-        @keyframes cardFloat {
-            0% { transform: translateY(0px); box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), inset 0 0 25px rgba(168, 85, 247, 0.2); }
-            100% { transform: translateY(-8px); box-shadow: 0 40px 90px rgba(168, 85, 247, 0.3), inset 0 0 35px rgba(168, 85, 247, 0.35); }
-        }
-
-        /* Left Side: Animated DP Ring */
+        /* Left Side: Avatar */
         .left-side {
             display: flex;
             flex-direction: column;
@@ -77,15 +100,14 @@
             border: 4px solid #a855f7;
             object-fit: cover;
             box-shadow: 0 0 35px rgba(168, 85, 247, 0.7);
-            transition: all 0.4s ease;
+            transition: transform 0.4s ease;
         }
 
         .avatar-box img:hover {
-            transform: scale(1.05) rotate(3deg);
-            box-shadow: 0 0 50px rgba(168, 85, 247, 1);
+            transform: scale(1.04);
         }
 
-        /* Right Side Details */
+        /* Right Side: Info Details */
         .right-side {
             display: flex;
             flex-direction: column;
@@ -109,7 +131,7 @@
             margin-top: 4px;
         }
 
-        /* Skills Section */
+        /* Skills Tags */
         .section-title {
             font-size: 0.85rem;
             text-transform: uppercase;
@@ -125,7 +147,6 @@
             gap: 10px;
         }
 
-        /* Tag Pulse Animation */
         .tag {
             background: rgba(168, 85, 247, 0.22);
             border: 1px solid rgba(168, 85, 247, 0.45);
@@ -134,16 +155,9 @@
             border-radius: 12px;
             font-size: 0.92rem;
             font-weight: 500;
-            transition: all 0.3s ease;
         }
 
-        .tag:hover {
-            background: rgba(168, 85, 247, 0.45);
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.5);
-        }
-
-        /* Animated Glowing Social Buttons */
+        /* Social Buttons with Wave Effect */
         .socials-container {
             display: flex;
             gap: 12px;
@@ -164,31 +178,35 @@
             align-items: center;
             gap: 10px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 1;
+            transition: color 0.4s ease, border-color 0.4s ease, transform 0.3s ease;
         }
 
-        /* Button Hover Effect with Light Shine Animation */
+        /* Wave Ripple Animation */
         .social-btn::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s ease;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, #a855f7 0%, #7e22ce 100%);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease-out, height 0.5s ease-out;
+            z-index: -1;
         }
 
         .social-btn:hover::before {
-            left: 100%;
+            width: 300px;
+            height: 300px;
         }
 
         .social-btn:hover {
-            background: #a855f7;
             color: #ffffff;
             border-color: #c084fc;
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.6);
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
         }
 
         /* Mobile View Responsive */
@@ -207,8 +225,15 @@
 </head>
 <body>
 
+    <!-- Falling Stars Animation Layer -->
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+
     <div class="profile-card">
-        <!-- Left Side: Animated DP -->
+        <!-- Left Side: DP -->
         <div class="left-side">
             <div class="avatar-box">
                 <img src="https://i.ibb.co/qYKqv7VR/707427181-18152508655428857-4484127178036789216-n.jpg" alt="Profile DP">
@@ -217,7 +242,6 @@
 
         <!-- Right Side: Details -->
         <div class="right-side">
-            <!-- Header -->
             <div class="user-header">
                 <h2>dtxxplays-ui</h2>
                 <p>Minecraft PvPer & Video Editor</p>
